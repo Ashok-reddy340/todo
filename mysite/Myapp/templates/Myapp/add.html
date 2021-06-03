@@ -1,10 +1,48 @@
-<form method = "POST">
-    {% csrf_token %}
-    <input type="text" name="name" id="name" placeholder="Enter a task">
-    <input type="text" name="priority" id="priority" placeholder="Enter a task number">
-    <input type="submit">
+{% extends 'Myapp/base.html' %}
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="p-3 shadow" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control " name="name" id="name" placeholder="Enter a task">
+
+
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter a task number">
+
+
+                </div>
+                <input class="btn btn-success" type="submit">
+ 
 
 
 
 
-</form>
+
+                
+
+
+
+
+
+
+            </form>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+{% endblock %}
