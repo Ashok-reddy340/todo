@@ -1,0 +1,11 @@
+{% extends 'Myapp/base.html' %}
+{% block body %}
+
+    {% for task in task_list %}
+
+        {{ task.name}} --> {{ task.priority }}
+
+        <br>
+    {% endfor %}   
+
+{% endblock %}    
