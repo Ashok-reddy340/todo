@@ -1,11 +1,56 @@
 {% extends 'Myapp/base.html' %}
 {% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>Todo</h1>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Add Task</h4>
+            <form class="p-3 shadow" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control " name="name" id="name" placeholder="Enter a task">
+                
+                    <br>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter a task number">
+                
+                    <br>
+                    </div>
+                    <input class="btn btn-success" type="submit">
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h4>Task to be completed</h4>
+            {% for task in task_list %}
+            <div class="shadow card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ task.name}}</h5>
+                    <p><b>{{ task.priority }}</b></p>
+                    <a class="btn btn-danger" href="">Done</a>
 
-    {% for task in task_list %}
 
-        {{ task.name}} --> {{ task.priority }}
+                </div>
+            </div>
+            <br>
+            {% endfor %} 
+            
+  
 
-        <br>
-    {% endfor %}   
+        </div>
 
+        
+    </div> 
+
+                
+</div>            
 {% endblock %}    
