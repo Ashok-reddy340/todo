@@ -7,8 +7,7 @@
                 <div class="banner-text">
                     <h1>Todo</h1>
                 </div>
-            </div>
-            
+            </div>           
         </div>
     </div>
     <div class="row">
@@ -17,13 +16,11 @@
             <form class="p-3 shadow" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        <input type="text" class="form-control " name="name" id="name" placeholder="Enter a task">
-                
+                        <input type="text" class="form-control " name="name" id="name" placeholder="Enter a task">                
                     <br>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter a task number">
-                
+                        <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter a task number">                
                     <br>
                     </div>
                     <input class="btn btn-success" type="submit">
@@ -36,21 +33,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ task.name}}</h5>
                     <p><b>{{ task.priority }}</b></p>
-                    <a class="btn btn-danger" href="">Done</a>
-
-
+                    <a class="btn btn-danger" href="{% url 'delete' task.id %}">Done</a>
                 </div>
             </div>
             <br>
             {% endfor %} 
-            
-  
-
-        </div>
-
-        
-    </div> 
-
-                
+        </div>        
+    </div>                
 </div>            
 {% endblock %}    
