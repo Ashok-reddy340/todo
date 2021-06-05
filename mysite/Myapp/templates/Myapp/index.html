@@ -20,6 +20,11 @@
                     <br>
                     </div>
                     <div class="form-group">
+                        <input type="date" class="form-control " name="date" id="date" >                
+                    <br>
+                    </div>
+
+                    <div class="form-group">
                         <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter a task number">                
                     <br>
                     </div>
@@ -31,8 +36,9 @@
             {% for task in task_list %}
             <div class="shadow card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ task.name}}</h5>
-                    <p><b>{{ task.priority }}</b></p>
+                    <h5 class="card-title">Task : {{ task.name}}</h5>
+                    <p><b>priority : {{ task.priority }}</b></p>
+                    <p><b>Date : {{ task.date }}</b></p>
                     <a class="btn btn-danger" href="{% url 'delete' task.id %}">Done</a>
                 </div>
             </div>
