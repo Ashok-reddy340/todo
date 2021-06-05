@@ -24,3 +24,12 @@ def index(request):
 
 
     return render(request,'Myapp/index.html',{'task_list':task_list})    
+
+
+def delete(request,taskid):
+
+    task = Task.objects.get(id=taskid)
+    if request.method == "POST":
+        task.delete()
+        return redirect('/')
+    return render(request,'Myapp/delete.html',{'task':task})
